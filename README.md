@@ -1,10 +1,10 @@
 ## py_lastfm_export
 
-This script extracts scrobble data from a last.fm user using the user's API key/secret, and creates an SQLite database file of the scrobble data.
+This script extracts scrobbling data from a last.fm user using the user's API key/secret, and creates an SQLite database file of the scrobbling data.
 
 #### How to use:
 
-1. Get your API key/secret from https://www.last.fm/api/authentication, and store them, along with your username, in "lastfm_info.py"
+1. Retrieve your API key/secret from https://www.last.fm/api/authentication, and store this info, along with your username, in "lastfm_info.py"
 2. Run "lastfm.py". Running this script requires the 'dataset' package, which you can install using:
 ```
 pip install dataset
