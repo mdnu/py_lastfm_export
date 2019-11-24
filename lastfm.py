@@ -1,5 +1,5 @@
 import requests
-import collections
+import collections.abc
 import dataset
 from lastfm_info import *
 
@@ -17,17 +17,26 @@ def flatten(d, parent_key=''):
     '''
     items = []
     for key, val in d.items():
-        if parent_key:
-            new_key = parent_key + '_' + key
-        else:
-            key
+        new_key = parent_key + '_' + key if parent_key else key
         if isinstance(val, collections.MutableMapping):
             items.extend(flatten(val, new_key).items())
         else:
-            new_key = new_key.replace('#', '')
             items.append((new_key, val))
     return dict(items)
-
+    
+    # old:
+    # items = []
+    # for key, val in d.items():
+    #     if parent_key:
+    #         new_key = parent_key + '_' + key
+    #     else:
+    #         key
+    #     if isinstance(val, collections.MutableMapping):
+    #         items.extend(flatten(val, new_key).items())
+    #     else:
+    #         new_key = new_key.replace('#', '')
+    #         items.append((new_key, val))
+    # return dict(items)
 
 def process_track(track):
     ''' (Track) -> Track
