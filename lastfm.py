@@ -67,7 +67,7 @@ def createdb():
     creates an empty table, then iterates over all pages, processing each
     track and inserting the processed track into the table.
     '''
-    resp = recent_tracks(user, api_key, 1, 10)
+    resp = recent_tracks(user, api_key, 1, 200)
     total_pages = int(resp['recenttracks']['@attr']['totalPages'])
     all_pages = []
     for page_num in range(1, total_pages + 1):
